@@ -7,16 +7,16 @@ import pickle
 import tensorflow as tf
 
 # load the trained model
-model = tf.keras.models.load_model('Class13/model.h5')
+model = tf.keras.models.load_model('model.h5')
 
 # load the encoder scaler
-with open('Class13/label_encoder_gender.pkl', 'rb') as file:
+with open('label_encoder_gender.pkl', 'rb') as file:
     label_encoder_gender = pickle.load(file)
 
-with open('Class13/onehot_encoder_geo.pkl', 'rb') as file:
+with open('onehot_encoder_geo.pkl', 'rb') as file:
     onehot_encoder_geo = pickle.load(file)
 
-with open('Class13/scaler.pkl', 'rb') as file:
+with open('scaler.pkl', 'rb') as file:
     scaler = pickle.load(file)
 
 
@@ -66,4 +66,5 @@ st.write(f'Churn Probability: {prediction_proba:.2f}')
 if prediction_proba > 0.5:
     st.warning('The customer is likely to leave the bank.')
 else:
+
     st.success('The customer is not likely to leave the bank.')
